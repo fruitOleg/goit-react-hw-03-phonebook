@@ -13,7 +13,7 @@ export class App extends Component {
     filter: '',
   };
 
-   componentDidMount() {
+   componentDidMount= () => {
       const savedContact = localStorage.getItem(localStorageKey)
       if (savedContact !== null) {
          this.setState({
@@ -23,12 +23,13 @@ export class App extends Component {
       }
    }
    
-   componentDidUpdate(prevProps, prevState) {
+   componentDidUpdate = (prevState) =>  {
       if (prevState !== this.state.contacts) {
          localStorage.setItem(localStorageKey, JSON.parse(this.state.contacts))
          
       }
    }
+
   addContact = newName => {
     if (
       this.state.contacts.map(contact => contact.name).includes(newName.name)
