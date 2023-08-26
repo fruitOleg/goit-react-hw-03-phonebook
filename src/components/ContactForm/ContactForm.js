@@ -26,7 +26,6 @@ export class ContactForm extends Component {
   handleSubmitForm = (value, actions) => {
     this.props.addContact(this.state);
     actions.resetForm();
-    console.log(value);
   };
 
   render() {
