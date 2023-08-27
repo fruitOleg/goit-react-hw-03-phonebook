@@ -13,19 +13,10 @@ const initialValues = {
 };
 
 export class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
-
-  handleChange = event => {
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value, id: nanoid() });
-  };
-
-  handleSubmitForm = (value, actions) => {
-    this.props.addContact(this.state);
-    actions.resetForm();
+  handleSubmitForm = (value, { resetForm }) => {
+    console.log({ value });
+    this.props.addContact(value);
+    resetForm();
   };
 
   render() {
@@ -38,25 +29,13 @@ export class ContactForm extends Component {
         <Form>
           <label>
             Name
-            <Field
-              type="text"
-              name="name"
-              placeholder="Input name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+            <Field type="text" name="name" placeholder="Input name" />
             <ErrorMessage name="name" />
           </label>
 
           <label>
             Number
-            <Field
-              type="tel"
-              name="number"
-              placeholder="Input number"
-              value={this.state.number}
-              onChange={this.handleChange}
-            />
+            <Field type="tel" name="number" placeholder="Input number" />
             <ErrorMessage name="number" />
           </label>
 
