@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Field, Formik, Form, ErrorMessage } from 'formik';
-import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 const schema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!'),
